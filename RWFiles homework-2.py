@@ -1,5 +1,3 @@
-from prettyprinter import pprint
-
 def read_files():
     files_list = ['1.txt', '2.txt', '3.txt']
     file_dict = {}
@@ -9,7 +7,7 @@ def read_files():
             lines = file.readlines()
             for line in lines:
                 text.append(line)
-        file_dict.update({len(text) - 1:text})
+            file_dict.update({len(text) - 1:text})
     return file_dict
 
 
@@ -21,12 +19,32 @@ def write_file():
         file.write('\n')
         file.write(str(arrange[0]))
         file.write('\n')
-        print(file_dict[arrange[0]][1])
+        for i in file_dict[arrange[0]]:
+            if file_dict[arrange[0]].index(i) == 0:
+                continue
+            else:
+                file.write(i)
+        file.write('\n')
+        file.write(file_dict[arrange[1]][0])
+        file.write('\n')
+        file.write(str(arrange[1]))
+        file.write('\n')
         for i in file_dict[arrange[1]]:
-            file.write(i)
-            file.write('\n')
+            if file_dict[arrange[1]].index(i) == 0:
+                continue
+            else:
+                file.write(i)
+        file.write('\n')
+        file.write(file_dict[arrange[2]][0])
+        file.write('\n')
+        file.write(str(arrange[2]))
+        file.write('\n')
+        for i in file_dict[arrange[2]]:
+            if file_dict[arrange[2]].index(i) == 0:
+                continue
+            else:
+                file.write(i)
 
 
-    #pprint(arrange)
-pprint(write_file())
-
+if __name__ == '__main__':
+    write_file()
